@@ -11,7 +11,7 @@ node {
       echo "My client secret is $AZURE_CLIENT_SECRET"
       echo "My tenant id is $AZURE_TENANT_ID"
       echo "My subscription id is $AZURE_SUBSCRIPTION_ID"
-      sh "az login --service-principal --username ${ARM_CLIENT_ID} --tenant ${ARM_TENANT_ID} --password ${ARM_CLIENT_SECRET}"
+      sh "az login --service-principal --username ${AZURE_CLIENT_ID} --tenant ${AZURE_TENANT_ID} --password ${AZURE_CLIENT_SECRET}"
     }
   }
 }
