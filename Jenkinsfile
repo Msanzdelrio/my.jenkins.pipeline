@@ -1,6 +1,12 @@
 import groovy.json.JsonSlurper
 
-node {
+pipeline{
+  
+  environment {
+    PATH = "C:\\Program Files\\Git\\usr\\bin;C:\\Program Files\\Git\\bin;${env.PATH}"    
+  }
+  agent any
+  
   stage('init') {
     checkout scm
   }
