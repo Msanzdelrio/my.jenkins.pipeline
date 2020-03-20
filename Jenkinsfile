@@ -1,7 +1,8 @@
 pipeline {
     stages {
-        stage('Connect') {
+        stage('Try') {
             steps {
+                echo 'Hello world'
             }
         }
     }
