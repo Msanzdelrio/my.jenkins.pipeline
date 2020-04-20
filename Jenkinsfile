@@ -5,7 +5,7 @@ pipeline {
   agent any
 
     parameters {
-        string(name: 'tags', defaultValue: 'Dept:IT', description: 'Tags applied to resource group')
+        string(name: 'tags', defaultValue: '{"Dept":"IT"}', description: 'Tags applied to resource group')
     }
   
     stages {
