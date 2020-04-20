@@ -27,11 +27,20 @@ pipeline {
                                         -var=subscription_id=$AZURE_SUBSCRIPTION_ID \
                                         -var=client_id=$AZURE_CLIENT_ID \
                                         -var=client_secret=$AZURE_CLIENT_SECRET \
-                                        -var=tags=${getMap('session:234567893egshdjchasd,userId:12345673456,timeOut:1800000')}
+                                        -var=tags=${params.tags}
                         terraform apply plan
                     '''
                 }
             }
         }
     }
+}
+
+def getArray(stringvalue){
+    def list = "${stringvalue}".split(',')
+    def item = []
+    for (int i = 0; i < list.size(); i++) {
+        item[i] = "\"" + list[i].replace(' ', '') + "\"" 
+    }
+    return item
 }
