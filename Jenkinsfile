@@ -1,10 +1,6 @@
 pipeline {
     agent any
   
-    parameters {
-            string(name: 'tags', description: '', defaultValue: 'session:234567893egshdjchasd,userId:12345673456,timeOut:1800000')
-    }
-  
     stages {
 
         stage('Set Terraform path') {
@@ -33,14 +29,4 @@ pipeline {
             }
         }
     }
-}
-
-def getMap(stringvalue){
-    def result = stringvalue.split(',').inject([:]) { map, token ->          
-        token.split(':').with {          
-            map[it[0].trim()] = it[1].trim()      
-            }     
-        map
-        }
-    return result 
 }
