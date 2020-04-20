@@ -43,6 +43,8 @@ pipeline {
                         az login --service-principal -u $AZURE_CLIENT_ID -p $AZURE_CLIENT_SECRET -t $AZURE_TENANT_ID
                         az account set --subscription $AZURE_SUBSCRIPTION_ID
                         terraform init
+                        terraform plan -out=plan
+                        terraform apply plan
                     '''
                 }
             }
