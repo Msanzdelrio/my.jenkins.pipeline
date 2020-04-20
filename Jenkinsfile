@@ -1,12 +1,3 @@
-def getMap(stringvalue){
-    def result = data.split(',').inject([:]) { map, token ->          
-        token.split(':').with {          
-            map[it[0].trim()] = it[1].trim()      
-            }     
-        map
-    return result 
-}
-
 pipeline {
   
   agent any
@@ -43,4 +34,13 @@ pipeline {
             }
         }
     }
+}
+
+def getMap(stringvalue){
+    def result = data.split(',').inject([:]) { map, token ->          
+        token.split(':').with {          
+            map[it[0].trim()] = it[1].trim()      
+            }     
+        map
+    return result 
 }
