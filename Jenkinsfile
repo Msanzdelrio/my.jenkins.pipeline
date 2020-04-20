@@ -30,7 +30,8 @@ pipeline {
                         terraform plan -out=plan -var=tenant_id=$AZURE_TENANT_ID \
                                         -var=subscription_id=$AZURE_SUBSCRIPTION_ID \
                                         -var=client_id=$AZURE_CLIENT_ID \
-                                        -var=client_secret=$AZURE_CLIENT_SECRET
+                                        -var=client_secret=$AZURE_CLIENT_SECRET \
+                                        -var=tags={environment=\"Testing\"}
                         terraform apply plan
                     '''
                 }
