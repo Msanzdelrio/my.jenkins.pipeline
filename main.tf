@@ -44,4 +44,6 @@ resource "azurerm_key_vault" "example" {
       "get",
     ]
   }
+
+  tags = var.tags
 }
