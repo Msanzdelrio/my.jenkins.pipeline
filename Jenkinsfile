@@ -1,14 +1,5 @@
 pipeline {
     agent any
-
-    def getMap(stringvalue){
-        def result = data.split(',').inject([:]) { map, token ->          
-            token.split(':').with {          
-                map[it[0].trim()] = it[1].trim()      
-                }     
-            map
-        return result 
-    }
   
     parameters {
             string(name: 'tags', description: '', defaultValue: 'session:234567893egshdjchasd,userId:12345673456,timeOut:1800000')
