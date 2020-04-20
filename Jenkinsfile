@@ -36,17 +36,17 @@ pipeline {
         
             }
         }
-        // stage('deploy') {
-        //         steps {
-        //         withCredentials([azureServicePrincipal('msr-master-spn')]) {
-        //             sh '''
-        //                 az login --service-principal -u $AZURE_CLIENT_ID -p $AZURE_CLIENT_SECRET -t $AZURE_TENANT_ID
-        //                 az account set --subscription $AZURE_SUBSCRIPTION_ID
-        //             '''
-        //             'terraform init'
-        //         }
-        //     }
-        // }
+        stage('deploy') {
+                steps {
+                withCredentials([azureServicePrincipal('msr-master-spn')]) {
+                    sh '''
+                        az login --service-principal -u $AZURE_CLIENT_ID -p $AZURE_CLIENT_SECRET -t $AZURE_TENANT_ID
+                        az account set --subscription $AZURE_SUBSCRIPTION_ID
+                        terraform init
+                    '''
+                }
+            }
+        }
     }
 }
 
