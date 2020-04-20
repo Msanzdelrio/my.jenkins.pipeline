@@ -1,5 +1,3 @@
-import groovy.json.JsonSlurper
-
 def getMap(stringvalue){
     def result = data.split(',').inject([:]) { map, token ->          
         token.split(':').with {          
