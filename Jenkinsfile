@@ -1,10 +1,19 @@
 import groovy.json.JsonSlurper
 
+def getMap(stringvalue){
+    def result = data.split(',').inject([:]) { map, token ->          
+        token.split(':').with {          
+            map[it[0].trim()] = it[1].trim()      
+            }     
+        map
+    return result 
+}
+
 pipeline {
   
   agent any
   parameters {
-        string(name: 'tags', description: '', defaultValue: 'environment=Testing,new=masanzde')
+        string(name: 'tags', description: '', defaultValue: 'session:234567893egshdjchasd,userId:12345673456,timeOut:1800000')
   }
   
     stages {
@@ -31,7 +40,7 @@ pipeline {
                                         -var=subscription_id=$AZURE_SUBSCRIPTION_ID \
                                         -var=client_id=$AZURE_CLIENT_ID \
                                         -var=client_secret=$AZURE_CLIENT_SECRET \
-                                        -var=tags={environment=Testing}
+                                        -var=tags=${getMap(params.tags)}
                         terraform apply plan
                     '''
                 }
