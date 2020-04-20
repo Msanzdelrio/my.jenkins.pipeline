@@ -47,3 +47,4 @@ resource "azurerm_key_vault" "example" {
 
   tags = var.tags
 }
+//coment added
