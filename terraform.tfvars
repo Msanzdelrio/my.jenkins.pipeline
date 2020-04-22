@@ -1,5 +1,5 @@
 rg_name  = "MyResourceGroup"
-kvt_name = "msrjenkinskvt2"
+kvt_name = "msrjenkinskvt3"
 tags = {
   environment = "Testing"
 }
