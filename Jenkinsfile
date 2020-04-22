@@ -1,5 +1,9 @@
 pipeline {
     agent any
+    
+    parameters {
+        string(name: 'sp', description: 'Name of the generated app', defaultValue: 'msr-master-spn')
+    }
   
     stages {
 
@@ -14,7 +18,7 @@ pipeline {
         }
         stage('deploy') {
                 steps {
-                withCredentials([azureServicePrincipal('msr-master-spn')]) {
+                    withCredentials([azureServicePrincipal(${params.sp)]) {
                     sh '''
                         az login --service-principal -u $AZURE_CLIENT_ID -p $AZURE_CLIENT_SECRET -t $AZURE_TENANT_ID
                         az account set --subscription $AZURE_SUBSCRIPTION_ID
