@@ -1,7 +1,7 @@
 provider "azurerm" {
   features {
     key_vault {
-      purge_soft_delete_on_destroy = true
+      purge_soft_delete_on_destroy = false
     }
   }
   version         = "=2.0.0"
@@ -24,7 +24,7 @@ resource "azurerm_key_vault" "example" {
   resource_group_name         = azurerm_resource_group.rg_name.name
   enabled_for_disk_encryption = true
   tenant_id                   = data.azurerm_client_config.current.tenant_id
-  soft_delete_enabled         = true
+  soft_delete_enabled         = false
   purge_protection_enabled    = false
 
   sku_name = "standard"
