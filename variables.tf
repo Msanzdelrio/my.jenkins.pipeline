@@ -15,5 +15,3 @@ variable "kvt_name" {
 }
 variable "tags" {
 }
-variable "test" {
-  }
