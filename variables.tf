@@ -13,5 +13,3 @@ variable "rg_name" {
 }
 variable "kvt_name" {
 }
-variable "tags" {
-}
